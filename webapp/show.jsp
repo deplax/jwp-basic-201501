@@ -65,7 +65,7 @@
 	                ${each.contents}
 	            </div>
 	            <div>
-	            	<a href="#">삭제</a>
+	            	<a class="delete" href="${each.questionId}">삭제</a>
 	            </div>
 	        </div>
         </c:forEach>

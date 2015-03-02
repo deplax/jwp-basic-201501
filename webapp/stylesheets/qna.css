@@ -545,3 +545,7 @@ tr.odd {
 .hasError {
     background: pink;
 }
+
+.delete{
+    float: right;   
+}

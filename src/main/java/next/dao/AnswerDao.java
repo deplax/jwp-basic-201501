@@ -19,6 +19,14 @@ public class AnswerDao {
 				new Timestamp(answer.getTimeFromCreateDate()),
 				answer.getQuestionId());
 	}
+	
+	public void delete(long answerId) {
+		JdbcTemplate jdbcTemplate = new JdbcTemplate();
+		String sql = "DELETE FROM ANSWERS WHERE id = ?";
+		jdbcTemplate.update(sql, answerId);
+				
+	}
+	
 
 	public List<Answer> findAllByQuestionId(long questionId) {
 		JdbcTemplate jdbcTemplate = new JdbcTemplate();
