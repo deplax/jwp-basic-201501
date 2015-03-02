@@ -5,6 +5,11 @@
 1번
 ---
 commit 함.
+
+2번
+---
+1. core.mvc.DispatcherServlet.service에서 @WebServlet(name="dispatcher", urlPatterns="*.next")를 통해 Servlet Container가 초기화 된다.
+
 3번
 --
 1. web.xml
