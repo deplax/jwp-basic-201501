@@ -1,9 +1,16 @@
-#### 2. Tomcat 서버를 시작할 때 웹 애플리케이션이 초기화하는 과정을 설명하라.
-* 
+# 박찬진, 이도호, 정원철
 
-#### 3. Tomcat 서버를 시작한 후 http://localhost:8080으로 접근시 호출 순서 및 흐름을 설명하라.
-* 
+셋이서 같이 풀었습니다.
 
-#### 10. ListController와 ShowController가 멀티 쓰레드 상황에서 문제가 발생하는 이유에 대해 설명하라.
-* 
-
+1번
+---
+commit 함.
+3번
+--
+1. web.xml
+2. index.jsp
+3. response.sendRedirect("/list.next")
+4. sevlet 컨테이너가 core.mvc.DispatcherServlet.service 실행 (어노테이션 @WebServlet(name="dispatcher", urlPatterns="*.next"))
+5. rm.findcontroller 가 core.mvc.RequestMapping 에서 mappings.put("/list.next", new ListController());  ListController() 실행
+6. next.controller.ListController 에서 questionDao.findAll(); 를 jstlView("list.jsp"); 랑 mav.addObject로 합쳐가지고 리턴(model and view)
+7. core.mvc.DispatcherServlet.service 가 리턴된 mav의 excute메쏘드를 실행한후에 getView 해서 render().
