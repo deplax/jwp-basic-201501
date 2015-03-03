@@ -34,7 +34,7 @@ function writeAnswers(e) {
 
 function deleteAnswer(id) {
 	 var url = "/api/deleteAnswer.next";
-	 var params = "questionId=" + id;
+	 var params = "answerId=" + id;
 
 	 var request = new XMLHttpRequest();
 	 request.open("POST", url, true);

@@ -22,9 +22,8 @@ public class AnswerDao {
 	
 	public void delete(long answerId) {
 		JdbcTemplate jdbcTemplate = new JdbcTemplate();
-		String sql = "DELETE FROM ANSWERS WHERE id = ?";
+		String sql = "DELETE FROM ANSWERS WHERE answerId = ?";
 		jdbcTemplate.update(sql, answerId);
-				
 	}
 	
 
