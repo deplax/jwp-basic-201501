@@ -23,11 +23,12 @@ public class ShowController extends AbstractController {
 	private QuestionDao questionDao = new QuestionDao();
 	private AnswerDao answerDao = new AnswerDao();
 	private Question question;
-	private List<Answer> answers;
+
 	
 	@Override
 	public ModelAndView execute(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
+		List<Answer> answers;
 		long questionId = ServletRequestUtils.getRequiredLongParameter(request, "questionId");
 		logger.debug("questionId : {}", questionId);
 		question = questionDao.findById(questionId);
