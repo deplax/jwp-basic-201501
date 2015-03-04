@@ -11,6 +11,13 @@ import core.jdbc.RowMapper;
 
 public class QuestionDao {
 	
+	private static QuestionDao instance = new QuestionDao();
+	private QuestionDao(){};
+	
+	public static QuestionDao getInstance(){
+		return instance;
+	}
+	
 	public void countOfComment(long questionId){
 		JdbcTemplate jdbcTemplate = new JdbcTemplate();
 		String sql = "UPDATE QUESTIONS SET countOfComment = countOfComment + 1 WHERE questionId = ?";

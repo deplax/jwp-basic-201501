@@ -10,8 +10,9 @@ import core.mvc.AbstractController;
 import core.mvc.ModelAndView;
 
 public class AddAnswerController extends AbstractController {
-	private AnswerDao answerDao = new AnswerDao();
-	private QuestionDao questionDao = new QuestionDao();
+	
+	AnswerDao answerDao = AnswerDao.getInstance();
+	QuestionDao questionDao = QuestionDao.getInstance();
 	
 	@Override
 	public ModelAndView execute(HttpServletRequest request, HttpServletResponse response)
