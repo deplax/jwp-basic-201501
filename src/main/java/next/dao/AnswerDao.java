@@ -18,6 +18,24 @@ public class AnswerDao {
 		return instance;
 	}
 	
+	public List<Answer> kuku(long questionId, String writer){
+		JdbcTemplate jdbcTemplate = new JdbcTemplate();
+		String sql = "SELECT * FROM ANSWERS WHERE questionId = ? and writer not ?";
+		RowMapper<Answer> rm = new RowMapper<Answer>() {
+			@Override
+			public Answer mapRow(ResultSet rs) throws SQLException {
+				return new Answer(
+						rs.getLong("answerId"),
+						rs.getString("writer"), 
+						rs.getString("contents"),
+						rs.getTimestamp("createdDate"), 
+						questionId);
+			}
+		};
+		
+		return jdbcTemplate.query(sql, rm, questionId, writer);
+	}
+	
 	public void insert(Answer answer) {
 		JdbcTemplate jdbcTemplate = new JdbcTemplate();
 		String sql = "INSERT INTO ANSWERS (writer, contents, createdDate, questionId) VALUES (?, ?, ?, ?)";

@@ -29,6 +29,12 @@
 
   	<br /> <a href="/list.next">목록으로</a>
   	
+  	<form action="/api/deleteQuestion.next" method="POST">
+		<input type="hidden" name="writer" value="${question.writer}" />
+		<input type="hidden" name="questionId" value="${question.questionId}" />
+		<a href="#" onclick="this.parentNode.submit()">질문삭제</a>
+	</form>
+  	
 	<h3>답변</h3>
 	<div class="answerWrite">
 	<form method="post">
